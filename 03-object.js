@@ -26,3 +26,13 @@ console.log(player2.points);
 // 속성을 추가
 player2.lastName = "choi";
 console.log(player2);
+
+// 데이터 변경
+player2.name = "jaein";
+console.log(player2);
+
+const player3 = {
+  name: "jane",
+  age: 28,
+};
+console.log(player3, console);
