@@ -1,4 +1,5 @@
-const title = document.getElementById("title");
-console.dir(title);
+const hi = document.querySelector(".hi h1");
+console.log(hi);
 
-title.innerHTML = "Got you!";
+const hello = document.querySelectorAll(".hello h1");
+console.log(hello);
