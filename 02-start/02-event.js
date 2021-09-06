@@ -1,11 +1,6 @@
 const title = document.getElementsByClassName("title")[0];
 console.log(title);
 
-function handleTitleClick() {
-  alert("Title was clicked!");
-  title.style.color = "royalblue";
-}
-
 function mouseTitleEnter() {
   title.innerHTML = "Mouse is here!";
 }
@@ -32,7 +27,6 @@ function handleWindowOnline() {
 
 console.dir(title);
 
-title.addEventListener("click", handleTitleClick);
 title.addEventListener("mouseenter", mouseTitleEnter);
 title.addEventListener("mouseleave", mouseTitleLeave);
 
