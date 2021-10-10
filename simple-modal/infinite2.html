@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 200px;
+      }
+      .box {
+        background: blue;
+        height: 200px;
+        width: 200px;
+        margin: 0 auto;
+      }
+      .box:nth-child(odd) {
+        background: red;
+      }
+      .box:first-child {
+        background: purple;
+      }
+      .pagination {
+        text-align: center;
+      }
+      .infinite {
+        counter-reset: section;
+      }
+      .list {
+        text-align: center;
+      }
+      .list:before {
+        counter-increment: section;
+        content: counter(section);
+        color: black;
+        margin: 0 auto;
+        font-size: 40px;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        function YesScroll() {
+          const pagination = document.querySelector(".paginaiton");
+          const fullContent = document.querySelector(".infinite");
+          const screenHeight = screen.height;
+          let oneTime = false;
+          document.addEventListener("scroll", OnScroll, { passive: true });
+          function OnScroll() {
+            const fullHeight = fullContent.clientHeight;
+            const scrollPosition = pageYOffset;
+            if (fullHeight - screenHeight / 2 <= scrollPosition && !oneTime) {
+              oneTime = true;
+              madeBox();
+            }
+          }
+          function madeBox() {
+            const list = document.createElement("div");
+            const box = list.cloneNode("false");
+            box.className = "box";
+
+            for (var i = 0; i < 5; i++) {
+              list.appendChild(box.cloneNode("true"));
+            }
+            list.className = "list";
+            fullContent.appendChild(list);
+            oneTime = false;
+          }
+        }
+        YesScroll();
+      };
+    </script>
+  </head>
+  <body>
+    <div class="infinite">
+      <div class="list">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+      </div>
+    </div>
+    <div class="pagination">페이지네이션</div>
+  </body>
+</html>
